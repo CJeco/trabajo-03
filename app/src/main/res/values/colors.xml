@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_primary">#6200EE</color>
+    <color name="purple_dark">#3700B3</color>
+    <color name="purple_light">#F3E5F5</color>
+    <color name="blue_primary">#2196F3</color>
+    <color name="blue_dark">#1976D2</color>
+    <color name="blue_light">#E3F2FD</color>
+    <color name="background_light">#F8F9FA</color>
+    <color name="status_completed">#2E7D32</color>
+    <color name="status_pending">#C62828</color>
 </resources>
