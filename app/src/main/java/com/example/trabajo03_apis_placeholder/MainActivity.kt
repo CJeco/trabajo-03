@@ -14,8 +14,10 @@ import com.example.trabajo03_apis_placeholder.data.JsonPlaceholderApi
 import com.example.trabajo03_apis_placeholder.data.Todo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.time.Duration.Companion.seconds
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -52,14 +54,17 @@ class MainActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
+                // Iniciamos la carga de datos
                 val todos = mutableListOf<Todo>()
-                // Obtenemos los primeros 5 todos
                 for (i in 1..5) {
                     val response = apiService.getTodoById(i)
                     if (response.isSuccessful && response.body() != null) {
                         response.body()?.let { todos.add(it) }
                     }
                 }
+
+                // Forzamos la espera de 5 segundos solicitada
+                delay(5.seconds)
 
                 withContext(Dispatchers.Main) {
                     if (todos.isNotEmpty()) {
